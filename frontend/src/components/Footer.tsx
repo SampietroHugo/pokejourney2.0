@@ -10,14 +10,16 @@ export default function Footer() {
 
   return (
     <footer className="pj-footer">
-      <video className="footer-video" autoPlay loop muted playsInline>
-        <source src="/videos/hoenn-waterfall.MP4" type="video/mp4" />
-      </video>
-
-      <div className="footer-overlay" />
-
       <p className="footer-text">
-        © {new Date().getFullYear()} PokéJourney — Made by SampietroHugo.
+        © {new Date().getFullYear()} PokéJourney — Made by{" "}
+        <a
+          className="footer-link"
+          href="https://github.com/SampietroHugo"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          SampietroHugo
+        </a>.
       </p>
     </footer>
   );
