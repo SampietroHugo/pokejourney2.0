@@ -6,7 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./auth/PrivateRoute";
 import { AuthProvider } from "./auth/AuthContext";
 import PublicLayout from "./layouts/PublicLayout";
-import OfficialGames from "./pages/games/official";
+import OfficialGames from "./pages/games/Official/Official";
 
 export default function App() {
   return (
