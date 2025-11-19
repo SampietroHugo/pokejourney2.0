@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./auth/PrivateRoute";
 import { AuthProvider } from "./auth/AuthContext";
 import PublicLayout from "./layouts/PublicLayout";
+import OfficialGames from "./pages/games/official";
 
 export default function App() {
   return (
@@ -23,6 +24,15 @@ export default function App() {
               element={
                 <PrivateRoute>
                   <Dashboard />
+                </PrivateRoute>
+              }
+            />
+
+            <Route
+              path="/games/official"
+              element={
+                <PrivateRoute>
+                  <OfficialGames />
                 </PrivateRoute>
               }
             />
