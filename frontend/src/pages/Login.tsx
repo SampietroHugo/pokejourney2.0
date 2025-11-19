@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import api from "../api/api";
+import { useAuth } from "../auth/AuthContext";
 import "./Login.css";
 
 export default function Login() {
     const navigate = useNavigate();
+    const { login } = useAuth();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -28,8 +29,7 @@ export default function Login() {
         setError("");
 
         try {
-            const res = await api.post("/auth/login", { email, password });
-            localStorage.setItem("pj_token", res.data.token);
+            await login(email, password);
 
             if (remember) {
                 localStorage.setItem("pj_saved_email", email);
@@ -67,6 +67,7 @@ export default function Login() {
                         className="input-field"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        autoComplete="username"
                     />
 
                     <div className="password-wrapper">
@@ -76,6 +77,7 @@ export default function Login() {
                             className="input-field"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            autoComplete="current-password"
                         />
 
                         <button
@@ -83,7 +85,23 @@ export default function Login() {
                             className="toggle-password"
                             onClick={() => setShowPassword(!showPassword)}
                         >
-                            👁
+                            {showPassword ? (
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                    fill="none" stroke="currentColor" strokeWidth="2"
+                                    viewBox="0 0 24 24">
+                                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-5.52 0-10-4.48-10-10
+                                     0-2.19.7-4.21 1.94-5.86M6.1 6.1A9.93 9.93 0 0 1 12 4c5.52 0 10 
+                                     4.48 10 10 0 2.19-.7 4.21-1.94 5.86"/>
+                                    <line x1="1" y1="1" x2="23" y2="23" strokeWidth="2" />
+                                </svg>
+                            ) : (
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                    fill="none" stroke="currentColor" strokeWidth="2"
+                                    viewBox="0 0 24 24">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12Z" />
+                                    <circle cx="12" cy="12" r="3" />
+                                </svg>
+                            )}
                         </button>
                     </div>
 

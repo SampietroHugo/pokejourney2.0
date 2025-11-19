@@ -27,12 +27,7 @@ export const register = async (req: express.Request, res: express.Response) => {
 
         const newUser = await prisma.user.create({
             data: { name, email, password: hashedPassword },
-            select: {
-                id: true,
-                name: true,
-                email: true,
-                createdAt: true,
-            },
+            select: { id: true, name: true, email: true, createdAt: true },
         });
 
         return res.status(201).json({ message: "User created", user: newUser });
@@ -63,7 +58,15 @@ export const login = async (req: express.Request, res: express.Response) => {
             { expiresIn: "1h" }
         );
 
-        return res.json({ message: "Login successful", token });
+        return res.json({
+            message: "Login successful",
+            token,
+            user: {
+                id: user.id,
+                name: user.name,
+                email: user.email,
+            }
+        });
     } catch (error) {
         console.error("Login error:", error);
         return res.status(500).json({ error: "Error logging in" });

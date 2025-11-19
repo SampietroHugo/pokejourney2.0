@@ -1,0 +1,34 @@
+.pj-footer {
+    position: relative;
+    width: 100%;
+    height: 85px;
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    margin-top: 50px;
+}
+
+.footer-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.footer-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .45);
+    backdrop-filter: blur(2px);
+    z-index: -1;
+}
+
+.footer-text {
+    font-size: 11px;
+    padding-top: 30px;
+    text-shadow: 2px 2px 0 #132450;
+}

@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { loginUser, registerUser } from "../api/auth";
 
-type User = { id: number; email: string; name?: string };
+type User = { id: number; email: string; name: string | null };
+
 type AuthContextType = {
     user: User | null;
     token: string | null;
@@ -15,35 +16,40 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [user, setUser] = useState<User | null>(() => {
-        const raw = localStorage.getItem("pj_user");
-        return raw ? JSON.parse(raw) : null;
+        const saved = localStorage.getItem("pj_user");
+        return saved ? JSON.parse(saved) : null;
     });
-    const [token, setToken] = useState<string | null>(() => localStorage.getItem("pj_token"));
+
+    const [token, setToken] = useState<string | null>(() =>
+        localStorage.getItem("pj_token")
+    );
+
     const [loading, setLoading] = useState(false);
-
-    useEffect(() => {
-        if (token) {
-            localStorage.setItem("pj_token", token);
-        } else {
-            localStorage.removeItem("pj_token");
-        }
-    }, [token]);
-
-    useEffect(() => {
-        if (user) localStorage.setItem("pj_user", JSON.stringify(user));
-        else localStorage.removeItem("pj_user");
-    }, [user]);
 
     const login = async (email: string, password: string) => {
         setLoading(true);
         try {
             const res = await loginUser({ email, password });
-            const { token: t, message } = res.data;
-            console.log(message);
-            setToken(t);
-            setUser({ id: 0, email });
+
+            const body = (res as any).data || res;
+
+            const userReceived = body.user || body.data?.user;
+            const tokenReceived = body.token || body.data?.token;
+
+            if (!userReceived || !tokenReceived) {
+                throw new Error("Invalid server response: Missing user or token");
+            }
+
+            localStorage.setItem("pj_token", tokenReceived);
+            localStorage.setItem("pj_user", JSON.stringify(userReceived));
+
+            setToken(tokenReceived);
+            setUser(userReceived);
+
             setLoading(false);
-        } catch (err: any) {
+            console.log("✅ Login saved successfully:", userReceived);
+        } catch (err) {
+            console.error("❌ Login failed:", err);
             setLoading(false);
             throw err;
         }
@@ -55,7 +61,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             await registerUser({ name, email, password });
             await login(email, password);
             setLoading(false);
-        } catch (err: any) {
+        } catch (err) {
             setLoading(false);
             throw err;
         }
@@ -64,10 +70,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const logout = () => {
         setToken(null);
         setUser(null);
+        localStorage.removeItem("pj_token");
+        localStorage.removeItem("pj_user");
     };
 
     return (
-        <AuthContext.Provider value={{ user, token, loading, login, register, logout }}>
+        <AuthContext.Provider
+            value={{ user, token, loading, login, register, logout }}
+        >
             {children}
         </AuthContext.Provider>
     );
