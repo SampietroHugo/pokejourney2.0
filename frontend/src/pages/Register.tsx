@@ -1,71 +1,130 @@
-// src/pages/Register.tsx
-import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { useAuth } from "../auth/AuthContext";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import api from "../api/api";
+import "./Login.css";
 
 export default function Register() {
-    const { register } = useAuth();
-    const nav = useNavigate();
+    const navigate = useNavigate();
+
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [busy, setBusy] = useState(false);
-    const [msg, setMsg] = useState<string | null>(null);
+    const [confirmPassword, setConfirmPassword] = useState("");
 
-    const onSubmit = async (e: React.FormEvent) => {
+    const [showPassword, setShowPassword] = useState(false);
+    const [error, setError] = useState("");
+
+    async function handleRegister(e: React.FormEvent) {
         e.preventDefault();
-        setBusy(true);
-        setMsg(null);
-        try {
-            await register(name, email, password);
-            setBusy(false);
-            nav("/dashboard");
-        } catch (err: any) {
-            setBusy(false);
-            setMsg(err?.response?.data?.error || "Registration failed.");
+        setError("");
+
+        if (password !== confirmPassword) {
+            return setError("Passwords do not match.");
         }
-    };
+
+        try {
+            await api.post("/auth/register", {
+                name,
+                email,
+                password
+            });
+
+            navigate("/login");
+        } catch (err: any) {
+            setError(err.response?.data?.error ?? "Registration failed.");
+        }
+    }
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 flex items-center justify-center p-6">
-            <div className="max-w-md w-full bg-slate-900/80 border border-slate-700 rounded-2xl p-8">
-                <h2 className="text-2xl font-bold text-white mb-2">Create Trainer</h2>
-                <p className="text-sm text-slate-300 mb-4">Join PokeJourney and start collecting.</p>
+        <div className="login-container">
+            <video className="bg-video" autoPlay loop muted playsInline>
+                <source src="/videos/hoenn-waterfall.MP4" type="video/mp4" />
+            </video>
 
-                {msg && <div className="text-sm text-red-300 bg-red-900/30 p-2 rounded mb-3">{msg}</div>}
+            <div className="login-box">
+                <h1 className="project-title">PokéJourney</h1>
+                <p className="project-desc">
+                    Begin your journey as a Pokémon Trainer today!
+                </p>
 
-                <form onSubmit={onSubmit} className="space-y-3">
+                <div className="header-divider"></div>
+
+                <h2 className="login-title">Create Account</h2>
+
+                <form onSubmit={handleRegister}>
+
+                    {/* NAME */}
                     <input
+                        type="text"
+                        placeholder="Trainer Name"
+                        className="input-field"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        placeholder="Name"
-                        className="w-full p-3 rounded bg-slate-800 border border-slate-700 text-white"
-                        required
                     />
+
+                    {/* EMAIL */}
                     <input
+                        type="email"
+                        placeholder="Email"
+                        className="input-field"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Email"
-                        className="w-full p-3 rounded bg-slate-800 border border-slate-700 text-white"
-                        required
-                        type="email"
                     />
+
+                    {/* PASSWORD */}
+                    <div className="password-wrapper">
+                        <input
+                            type={showPassword ? "text" : "password"}
+                            placeholder="Password"
+                            className="input-field"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+
+                        <button
+                            type="button"
+                            className="toggle-password"
+                            onClick={() => setShowPassword(!showPassword)}
+                        >
+                            {showPassword ? (
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                    fill="none" stroke="currentColor" strokeWidth="2"
+                                    viewBox="0 0 24 24">
+                                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-5.52 0-10-4.48-10-10
+                                     0-2.19.7-4.21 1.94-5.86M6.1 6.1A9.93 9.93 0 0 1 12 4c5.52 0 10 
+                                     4.48 10 10 0 2.19-.7 4.21-1.94 5.86"/>
+                                    <line x1="1" y1="1" x2="23" y2="23" strokeWidth="2" />
+                                </svg>
+                            ) : (
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                    fill="none" stroke="currentColor" strokeWidth="2"
+                                    viewBox="0 0 24 24">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12Z" />
+                                    <circle cx="12" cy="12" r="3" />
+                                </svg>
+                            )}
+                        </button>
+                    </div>
+
+                    {/* CONFIRM PASSWORD */}
                     <input
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Password"
-                        className="w-full p-3 rounded bg-slate-800 border border-slate-700 text-white"
-                        required
-                        type="password"
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Confirm Password"
+                        className="input-field"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
                     />
-                    <button disabled={busy} className="w-full p-3 rounded bg-green-500 text-white font-semibold">
-                        {busy ? "Creating..." : "Create account"}
+
+                    {error && <p className="error-msg">{error}</p>}
+
+                    <button type="submit" className="login-btn">
+                        Register
                     </button>
                 </form>
 
-                <div className="mt-4 text-sm text-slate-400">
-                    Already a trainer? <Link to="/" className="text-yellow-300 hover:underline">Login</Link>
-                </div>
+                <p className="login-footer">
+                    Already have an account? <Link to="/login">Login</Link>
+                </p>
             </div>
         </div>
     );

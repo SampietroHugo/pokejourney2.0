@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PrivateRoute from "./auth/PrivateRoute";
@@ -18,8 +18,17 @@ export default function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />} />
+
+          {/* Redireciona a raiz (/) para /login */}
+          <Route path="/" element={<Navigate to="/login" />} />
+
+          {/* Login */}
+          <Route path="/login" element={<Login />} />
+
+          {/* Register */}
           <Route path="/register" element={<Register />} />
+
+          {/* Dashboard protegido */}
           <Route
             path="/dashboard"
             element={

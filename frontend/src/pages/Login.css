@@ -1,4 +1,3 @@
-/* CONTAINER */
 .login-container {
     width: 100vw;
     height: 100vh;
@@ -129,16 +128,6 @@
 
 .remember-me input {
     transform: scale(1.2);
-}
-
-.forgot-link {
-    font-size: 11px;
-    color: #8fc5ff;
-    text-decoration: none;
-}
-
-.forgot-link:hover {
-    text-decoration: underline;
 }
 
 .login-btn {
