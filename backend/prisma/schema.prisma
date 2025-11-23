@@ -8,9 +8,65 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
+  id        Int        @id @default(autoincrement())
   name      String
-  email     String   @unique
+  email     String     @unique
   password  String
-  createdAt DateTime @default(now())
+  createdAt DateTime   @default(now())
+  games     GameSave[]
+}
+
+model GameSave {
+  id          String    @id @default(uuid())
+  slug        String
+  title       String
+  gameLogoSrc String
+  userId      Int
+  user        User      @relation(fields: [userId], references: [id])
+  trainer     Trainer?
+  team        Pokemon[]
+  moments     Moment[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@unique([userId, slug])
+}
+
+model Trainer {
+  id                String   @id @default(uuid())
+  gameSaveId        String   @unique
+  gameSave          GameSave @relation(fields: [gameSaveId], references: [id], onDelete: Cascade)
+  inGameId          String
+  name              String
+  startDate         String
+  pokedexStatus     String
+  nationaldexStatus String
+  finished          String?
+  imageSrc          String
+  imageAlt          String
+  badges            Json     @default("[]")
+}
+
+model Pokemon {
+  id         String   @id @default(uuid())
+  gameSaveId String
+  gameSave   GameSave @relation(fields: [gameSaveId], references: [id], onDelete: Cascade)
+  name       String
+  spriteSrc  String
+  isShiny    Boolean  @default(false)
+  item       Json?
+  details    Json
+  types      Json
+  moves      Json
+  altForm    Json?
+  position   Int
+}
+
+model Moment {
+  id          String   @id @default(uuid())
+  gameSaveId  String
+  gameSave    GameSave @relation(fields: [gameSaveId], references: [id], onDelete: Cascade)
+  src         String
+  description String   @db.Text
+  date        String
 }

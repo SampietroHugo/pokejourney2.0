@@ -7,6 +7,7 @@ import PrivateRoute from "./auth/PrivateRoute";
 import { AuthProvider } from "./auth/AuthContext";
 import PublicLayout from "./layouts/PublicLayout";
 import OfficialGames from "./pages/games/Official/Official";
+import GamePage from "./pages/GamePage";
 
 export default function App() {
   return (
@@ -33,6 +34,15 @@ export default function App() {
               element={
                 <PrivateRoute>
                   <OfficialGames />
+                </PrivateRoute>
+              }
+            />
+
+            <Route
+              path="/game/:gameId"
+              element={
+                <PrivateRoute>
+                  <GamePage />
                 </PrivateRoute>
               }
             />

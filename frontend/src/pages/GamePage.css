@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.game-page-wrapper {
+    background-color: #1c212e;
+    min-height: 100vh;
+    padding-bottom: 50px;
+    color: #fff;
+}
+
+.trainerCard,
+.main-team,
+.moments-album {
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+}
+
+#app-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.game-title {
+    display: block;
+    margin: 30px auto 40px;
+    max-width: 600px;
+    height: 120px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.7));
+    border-radius: 15px;
+}
+
+.trainerCard {
+    width: 800px;
+    max-width: 95%;
+    margin: 40px auto;
+    background-color: #2a3447;
+    border: 3px solid #4a5b6e;
+    border-radius: 4px;
+    box-shadow: 0 0 0 3px #f5d85b, 0 0 0 8px #4a5b6e, 0 8px 15px rgba(0, 0, 0, 0.5);
+    color: #c9d0e1;
+    padding: 0;
+    background-image: url('/src/assets/backgrounds/trainer-card.png');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    overflow: hidden;
+}
+
+.trainerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #d5b040, #f5d85b);
+    border-bottom: 3px solid #4a5b6e;
+    padding: 10px 15px;
+}
+
+.trainerHeader h2 {
+    font-size: 12px;
+    color: #2b2b2b;
+    margin: 0;
+    text-shadow: 1px 1px #fff;
+}
+
+.trainerHeader span {
+    font-size: 10px;
+    color: #2b2b2b;
+    text-shadow: 1px 1px #fff;
+}
+
+.trainerDisplay {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 30px;
+    gap: 20px;
+    align-items: center;
+}
+
+.trainerDisplay .trainer-text-info {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.trainerDisplay .trainer-text-info p {
+    margin: 8px 0;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.trainerDisplay .label {
+    color: #a8b3c9;
+}
+
+.trainerDisplay .value {
+    color: #fff;
+    margin-left: 8px;
+}
+
+.trainerDisplay img {
+    height: 200px;
+    object-fit: contain;
+}
+
+.trainer-info {
+    padding: 15px;
+}
+
+.badge-title {
+    font-size: 10px;
+    color: #f5d85b;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.badges {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 5px;
+    background-color: #1c212e;
+    border: 2px solid #f5d85b;
+    padding: 10px 5px;
+    justify-content: center;
+    box-shadow:
+        0 4px 0 #000,
+        0 6px 0 #4a5b6e,
+        0 10px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    top: -5px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+.badges img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50px;
+    height: 50px;
+    filter: drop-shadow(3px 3px 0 #000);
+}
+
+.main-team {
+    background: #1c212e;
+    border: 3px solid #4a5b6e;
+    border-radius: 8px;
+    box-shadow: 0 0 0 3px #60a0d0, 0 0 0 8px #4a5b6e;
+    width: 1000px;
+    max-width: 90%;
+    margin: 50px auto;
+    padding: 15px;
+    color: #c9d0e1;
+}
+
+.main-team .title {
+    background: #60a0d0;
+    border: 3px solid #4a5b6e;
+    text-align: center;
+    color: #1c212e;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.main-team ol {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.pokemonCard {
+    background: #2a3447;
+    border: 3px solid #4a5b6e;
+    border-radius: 6px;
+    box-shadow: 0 0 0 2px #60a0d0;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+}
+
+.sprite-container {
+    position: relative;
+    height: 120px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sprite {
+    width: 96px;
+    height: 96px;
+    image-rendering: pixelated;
+}
+
+.item {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    padding: 2px;
+}
+
+.info h4 {
+    color: #60a0d0;
+    margin: 10px 0 5px;
+    text-align: center;
+}
+
+.info p {
+    font-size: 9px;
+    margin: 2px 0;
+}
+
+.type-icon {
+    height: 12px;
+    margin-left: 5px;
+}
+
+.moves-list ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 8px;
+    background: #1c212e;
+    border: 1px solid #4a5b6e;
+    padding: 5px;
+}
+
+.moves-list li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 8px;
+    margin-bottom: 4px;
+    color: #fff;
+}
+
+.moves-list li img {
+    height: 10px;
+}

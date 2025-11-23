@@ -1,0 +1,430 @@
+{
+    "title": "Pokémon Leaf Green",
+    "gameLogoSrc": "/img/logos/leaf-green.png",
+    "trainer": {
+        "id": "53319",
+        "name": "Hyugo",
+        "startDate": "09/10/2025",
+        "pokedexStatus": "151/151",
+        "nationaldexStatus": "None/386",
+        "finished": "None",
+        "imageSrc": "/img/trainers/leaf.png",
+        "imageAlt": "Trainer Leaf"
+    },
+    "badges": [
+        {
+            "alt": "Boulder Badge",
+            "title": "Boulder Badge",
+            "src": "/img/badges/gen1/boulder.png"
+        },
+        {
+            "alt": "Cascade Badge",
+            "title": "Cascade Badge",
+            "src": "/img/badges/gen1/cascade.png"
+        },
+        {
+            "alt": "Thunder Badge",
+            "title": "Thunder Badge",
+            "src": "/img/badges/gen1/thunder.png"
+        },
+        {
+            "alt": "Rainbow Badge",
+            "title": "Rainbow Badge",
+            "src": "/img/badges/gen1/rainbow.png"
+        },
+        {
+            "alt": "Soul Badge",
+            "title": "Soul Badge",
+            "src": "/img/badges/gen1/soul.png"
+        },
+        {
+            "alt": "Marsh Badge",
+            "title": "Marsh Badge",
+            "src": "/img/badges/gen1/marsh.png"
+        },
+        {
+            "alt": "Volcano Badge",
+            "title": "Volcano Badge",
+            "src": "/img/badges/gen1/volcano.png"
+        },
+        {
+            "alt": "Earth Badge",
+            "title": "Earth Badge",
+            "src": "/img/badges/gen1/earth.png"
+        }
+    ],
+    "team": [
+        {
+            "name": "Venusaur",
+            "spriteSrc": "/img/pokemons/frlg/venusaur.png",
+            "isShiny": false,
+            "item": {
+                "src": "/img/item/held-item/leftovers.png",
+                "alt": "Leftovers"
+            },
+            "details": {
+                "gender": "Male",
+                "ability": "Overgrow",
+                "nature": "Calm",
+                "captureDate": "09/10/2025"
+            },
+            "types": [
+                {
+                    "src": "/img/types/grass.png",
+                    "alt": "Grass Type"
+                },
+                {
+                    "src": "/img/types/poison.png",
+                    "alt": "Poison Type"
+                }
+            ],
+            "moves": [
+                {
+                    "name": "Sludge Bomb",
+                    "typeSrc": "/img/types/poison.png",
+                    "typeAlt": "Poison Type"
+                },
+                {
+                    "name": "Sleep Powder",
+                    "typeSrc": "/img/types/grass.png",
+                    "typeAlt": "Grass Type"
+                },
+                {
+                    "name": "Giga Drain",
+                    "typeSrc": "/img/types/grass.png",
+                    "typeAlt": "Grass Type"
+                },
+                {
+                    "name": "Razor Leaf",
+                    "typeSrc": "/img/types/grass.png",
+                    "typeAlt": "Grass Type"
+                }
+            ],
+            "altForm": null
+        },
+        {
+            "name": "Gyarados",
+            "spriteSrc": "/img/pokemons/frlg/gyarados.png",
+            "isShiny": false,
+            "item": {
+                "src": "/img/item/held-item/mystic-water.png",
+                "alt": "Mystic Water"
+            },
+            "details": {
+                "gender": "Male",
+                "ability": "Intimidate",
+                "nature": "Adamant",
+                "captureDate": "09/10/2025"
+            },
+            "types": [
+                {
+                    "src": "/img/types/water.png",
+                    "alt": "Water Type"
+                },
+                {
+                    "src": "/img/types/flying.png",
+                    "alt": "Flying Type"
+                }
+            ],
+            "moves": [
+                {
+                    "name": "Ice Beam",
+                    "typeSrc": "/img/types/ice.png",
+                    "typeAlt": "Ice Type"
+                },
+                {
+                    "name": "Surf",
+                    "typeSrc": "/img/types/water.png",
+                    "typeAlt": "Water Type"
+                },
+                {
+                    "name": "Bite",
+                    "typeSrc": "/img/types/dark.png",
+                    "typeAlt": "Dark Type"
+                },
+                {
+                    "name": "Earthquake",
+                    "typeSrc": "/img/types/ground.png",
+                    "typeAlt": "Ground Type"
+                }
+            ],
+            "altForm": null
+        },
+        {
+            "name": "Golem",
+            "spriteSrc": "/img/pokemons/frlg/golem.png",
+            "isShiny": false,
+            "item": {
+                "src": "/img/item/held-item/hard-stone.png",
+                "alt": "Hard Stone"
+            },
+            "details": {
+                "gender": "Female",
+                "ability": "Rock Head",
+                "nature": "Adamant",
+                "captureDate": "09/10/2025"
+            },
+            "types": [
+                {
+                    "src": "/img/types/rock.png",
+                    "alt": "Rock Type"
+                },
+                {
+                    "src": "/img/types/ground.png",
+                    "alt": "Ground Type"
+                }
+            ],
+            "moves": [
+                {
+                    "name": "Seismic Toss",
+                    "typeSrc": "/img/types/fighting.png",
+                    "typeAlt": "Fighting Type"
+                },
+                {
+                    "name": "Earthquake",
+                    "typeSrc": "/img/types/ground.png",
+                    "typeAlt": "Ground Type"
+                },
+                {
+                    "name": "Rock Slide",
+                    "typeSrc": "/img/types/rock.png",
+                    "typeAlt": "Rock Type"
+                },
+                {
+                    "name": "Double-Edge",
+                    "typeSrc": "/img/types/normal.png",
+                    "typeAlt": "Normal Type"
+                }
+            ],
+            "altForm": null
+        },
+        {
+            "name": "Alakazam",
+            "spriteSrc": "/img/pokemons/frlg/alakazam.png",
+            "isShiny": false,
+            "item": {
+                "src": "/img/item/held-item/twisted-spoon.png",
+                "alt": "Twisted Spoon"
+            },
+            "details": {
+                "gender": "Male",
+                "ability": "Synchronize",
+                "nature": "Timid",
+                "captureDate": "10/10/2025"
+            },
+            "types": [
+                {
+                    "src": "/img/types/psychic.png",
+                    "alt": "Psychic Type"
+                }
+            ],
+            "moves": [
+                {
+                    "name": "Calm Mind",
+                    "typeSrc": "/img/types/psychic.png",
+                    "typeAlt": "Psychic Type"
+                },
+                {
+                    "name": "Psychic",
+                    "typeSrc": "/img/types/psychic.png",
+                    "typeAlt": "Psychic Type"
+                },
+                {
+                    "name": "Recover",
+                    "typeSrc": "/img/types/normal.png",
+                    "typeAlt": "Normal Type"
+                },
+                {
+                    "name": "Psybeam",
+                    "typeSrc": "/img/types/psychic.png",
+                    "typeAlt": "Psychic Type"
+                }
+            ],
+            "altForm": null
+        },
+        {
+            "name": "Dragonite",
+            "spriteSrc": "/img/pokemons/frlg/dragonite.png",
+            "isShiny": false,
+            "item": {
+                "src": "/img/item/held-item/leftovers.png",
+                "alt": "Leftovers"
+            },
+            "details": {
+                "gender": "Male",
+                "ability": "Inner Focus",
+                "nature": "Lonely",
+                "captureDate": "10/10/2025"
+            },
+            "types": [
+                {
+                    "src": "/img/types/dragon.png",
+                    "alt": "Dragon Type"
+                },
+                {
+                    "src": "/img/types/flying.png",
+                    "alt": "Flying Type"
+                }
+            ],
+            "moves": [
+                {
+                    "name": "Fly",
+                    "typeSrc": "/img/types/flying.png",
+                    "typeAlt": "Flying Type"
+                },
+                {
+                    "name": "Ice Beam",
+                    "typeSrc": "/img/types/ice.png",
+                    "typeAlt": "Ice Type"
+                },
+                {
+                    "name": "Outrage",
+                    "typeSrc": "/img/types/dragon.png",
+                    "typeAlt": "Dragon Type"
+                },
+                {
+                    "name": "Waterfall",
+                    "typeSrc": "/img/types/water.png",
+                    "typeAlt": "Water Type"
+                }
+            ],
+            "altForm": null
+        },
+        {
+            "name": "Raichu",
+            "spriteSrc": "/img/pokemons/frlg/raichu.png",
+            "isShiny": false,
+            "item": {
+                "src": "/img/item/held-item/amulet-coin.png",
+                "alt": "Amulet Coin"
+            },
+            "details": {
+                "gender": "Female",
+                "ability": "Static",
+                "nature": "Hasty",
+                "captureDate": "10/10/2025"
+            },
+            "types": [
+                {
+                    "src": "/img/types/electric.png",
+                    "alt": "Electric Type"
+                }
+            ],
+            "moves": [
+                {
+                    "name": "Thief",
+                    "typeSrc": "/img/types/dark.png",
+                    "typeAlt": "Dark Type"
+                },
+                {
+                    "name": "Brick Break",
+                    "typeSrc": "/img/types/fighting.png",
+                    "typeAlt": "Fighting Type"
+                },
+                {
+                    "name": "Thunderbolt",
+                    "typeSrc": "/img/types/electric.png",
+                    "typeAlt": "Electric Type"
+                },
+                {
+                    "name": "Thunder",
+                    "typeSrc": "/img/types/electric.png",
+                    "typeAlt": "Electric Type"
+                }
+            ],
+            "altForm": null
+        }
+    ],
+    "moments": [
+        {
+            "src": "/img/archives/leaf-green/articuno.png",
+            "description": "Encounter with the legendary bird Pokémon Articuno, on Seafoam Island.",
+            "date": "12/10/2025"
+        },
+        {
+            "src": "/img/archives/leaf-green/zapdos.png",
+            "description": "Encounter with the legendary bird Pokémon Zapdos, on Power Plant.",
+            "date": "12/10/2025"
+        },
+        {
+            "src": "/img/archives/leaf-green/moltres.png",
+            "description": "Encounter with the legendary bird Pokémon Moltres, on Mt. Ember.",
+            "date": "13/10/2025"
+        },
+        {
+            "src": "/img/archives/leaf-green/hall-of-fame.png",
+            "description": "Victory against the Elite Four and the Pokémon League Champion.",
+            "date": "14/10/2025"
+        },
+        {
+            "src": "/img/archives/leaf-green/entei.png",
+            "description": "Encounter and capture of the legendary Pokémon Entei, after a quick search on Route 7.",
+            "date": "16/10/2025"
+        },
+        {
+            "src": "/img/archives/leaf-green/mewtwo.png",
+            "description": "Encounter with the legendary Pokémon Mewtwo in Cerulean Cave.",
+            "date": "16/10/2025"
+        },
+        {
+            "src": "/img/archives/leaf-green/hall-of-fame-rematch.png",
+            "description": "Victory against the attempted revenge of the Elite Four and the Pokémon League Champion.",
+            "date": "17/10/2025"
+        },
+        {
+            "src": "/img/archives/leaf-green/mew.png",
+            "description": "Mew from the Aura event (2007 - Europe). Acquired through trade.",
+            "date": "18/10/2025"
+        },
+        {
+            "src": "/img/archives/leaf-green/pokedex.png",
+            "description": "Certificate awarded by Game Freak for capturing all 151 Pokémon from Kanto, completing the Pokédex.",
+            "date": "18/10/2025"
+        },
+        {
+            "src": "/img/archives/leaf-green/raikou.png",
+            "description": "Raikou from the Pokémon 10th Anniversary event (2006 - Europe). Acquired through trade.",
+            "date": "26/10/2025"
+        },
+        {
+            "src": "/img/archives/leaf-green/raikou.png",
+            "description": "Suicune from the Pokémon 10th Anniversary event (2006 - USA). Acquired through trade.",
+            "date": "26/10/2025"
+        },
+        {
+            "src": "/img/archives/leaf-green/lugia.png",
+            "description": "Encounter with the Legendary Pokémon Lugia at Navel Rock.",
+            "date": "26/10/2025"
+        },
+        {
+            "src": "/img/archives/leaf-green/ho-oh.png",
+            "description": "Encounter with the Legendary Pokémon Ho-Oh at Navel Rock.",
+            "date": "26/10/2025"
+        },
+        {
+            "src": "/img/archives/leaf-green/celebi.png",
+            "description": "Celebi Ageto, distributed through the Pokémon Colosseum Bonus Disc (Japan). Acquired through trading.",
+            "date": "26/10/2025"
+        },
+        {
+            "src": "/img/archives/leaf-green/team-lvl100.png",
+            "description": "The entire main team has been leveled up to level 100.",
+            "date": "31/10/2025"
+        },
+        {
+            "src": "/img/archives/leaf-green/charmander-shiny.png",
+            "description": "Shiny Charmander. Obtained after a shiny egg hunt of 6724 eggs.",
+            "date": "03/11/2025"
+        },
+        {
+            "src": "/img/archives/leaf-green/dratini-shiny.png",
+            "description": "Machop Shiny. Obtained inside Granite Cave after a shiny hunt, 712 encounters.",
+            "date": "03/11/2025"
+        },
+        {
+            "src": "/img/archives/leaf-green/pidgey-shiny.png",
+            "description": "Encountering and capturing a shiny Pidgey on Route 7.",
+            "date": "04/11/2025"
+        }
+    ]
+}
